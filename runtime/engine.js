@@ -1892,6 +1892,12 @@
       replace: (_, n) => `欢迎使用 ${n}！`
     },
     {
+      key: "Welcome back, {name}. Where should we pick up?",
+      pattern: /^Welcome back, ([^\r\n]{1,80})\. Where should we pick up\?$/i,
+      guard: (el) => Boolean(el?.closest?.('h1,h2,[role="heading"]')),
+      replace: (_, name) => `欢迎回来，${name}。今天想从哪里开始？`
+    },
+    {
       key: "Loading {name}...",
       pattern: /^Loading\s+(.+?)(?:\.\.\.|…)$/i,
       replace: (_, n) => `正在加载 ${nestedLabel(n)}...`
